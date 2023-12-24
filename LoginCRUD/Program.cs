@@ -34,7 +34,10 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.R
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddRazorPages();
+// Add App Service logging
+builder.Logging.AddAzureWebAppDiagnostics();
+
+//builder.Services.AddRazorPages();
 // builder.Services.AddDbContext<LoginDBContext2>(options =>
 //     options.UseSqlite(builder.Configuration.GetConnectionString("LoginDBContext2") ?? throw new InvalidOperationException("Connection string 'LoginDBContext2' not found.")));
 
@@ -73,6 +76,8 @@ if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
 }
+
+app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
@@ -82,6 +87,6 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-app.MapRazorPages();
+//app.MapRazorPages();
 
 app.Run();
