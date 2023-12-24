@@ -9,13 +9,17 @@ using LoginCRUD.Models;
 
 
 var builder = WebApplication.CreateBuilder(args);
-var connectionString = builder.Configuration.GetConnectionString("ConnectionStringPSQL") ?? throw new InvalidOperationException("Connection string 'LoginDBContextConnection' not found.");
+var connectionString = builder.Configuration.GetConnectionString("AZURE_POSTGRESQL_CONNECTIONSTRING") ?? throw new InvalidOperationException("Connection string 'LoginDBContextConnection' not found.");
 
 // Funciona para crear la base de datos con sqlite
 //builder.Services.AddDbContext<LoginDBContext>(options => options.UseSqlite(connectionString));
 
 // Funciona para crear la base de datos con postgresql
 builder.Services.AddDbContext<LoginDBContext>(options => options.UseNpgsql(connectionString));
+builder.Services.AddStackExchangeRedisCache(options =>{
+    options.Configuration = builder.Configuration["AZURE_REDIS_CONNECTIONSTRING"];
+    options.InstanceName = "SampleInstance";
+});
 
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false).AddEntityFrameworkStores<LoginDBContext>();
 
