@@ -20,6 +20,7 @@ builder.Services.AddDbContext<LoginDBContext>(options => options.UseNpgsql(conne
 //builder.Services.AddDbContext<LoginDBContext>(options => options.UseSqlite(connectionString));
 
 // Funciona para crear la base de datos con postgresql
+// var connectionString = builder.Configuration.GetConnectionString("ConnectionStringPSQL") ?? throw new InvalidOperationException("Connection string 'LoginDBContextConnection' not found.");
 // builder.Services.AddDbContext<LoginDBContext>(options => options.UseNpgsql(connectionString));
 
 // Funciona para crear la BD Redis en Azure

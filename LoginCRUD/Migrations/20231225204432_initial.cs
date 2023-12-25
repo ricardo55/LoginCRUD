@@ -60,7 +60,7 @@ namespace LoginCRUD.Migrations
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Title = table.Column<string>(type: "text", nullable: true),
-                    ReleaseDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    ReleaseDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     Genre = table.Column<string>(type: "text", nullable: true),
                     Price = table.Column<decimal>(type: "numeric", nullable: false)
                 },

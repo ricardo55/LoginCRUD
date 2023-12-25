@@ -109,7 +109,7 @@ namespace LoginCRUD.Migrations
                         .HasColumnType("numeric");
 
                     b.Property<DateTime>("ReleaseDate")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Title")
                         .HasColumnType("text");

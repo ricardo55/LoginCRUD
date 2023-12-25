@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace LoginCRUD.Migrations
 {
     [DbContext(typeof(LoginDBContext))]
-    [Migration("20231223215624_initial")]
+    [Migration("20231225204432_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -112,7 +112,7 @@ namespace LoginCRUD.Migrations
                         .HasColumnType("numeric");
 
                     b.Property<DateTime>("ReleaseDate")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Title")
                         .HasColumnType("text");
