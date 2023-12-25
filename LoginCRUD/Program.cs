@@ -73,10 +73,12 @@ using (var scope = app.Services.CreateScope())
 //var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Home/Error");
-}
+// if (!app.Environment.IsDevelopment())
+// {
+//     app.UseExceptionHandler("/Home/Error");
+// }
+app.UseDeveloperExceptionPage();
+app.UseDatabaseErrorPage();
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
