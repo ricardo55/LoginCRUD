@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace AuthSystem.Controllers
+namespace LoginCRUD.Controllers
 {
     [Authorize]
     public class HomeController : Controller
