@@ -58,6 +58,5 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'moviesappazure'
-          slot-name: 'Production'
           package: .
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C32FD0E9C6594DB6B67672AF2E085747 }}
