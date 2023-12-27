@@ -16,13 +16,16 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 //var connectionString = builder.Configuration.GetConnectionString("LoginDBContextConnection") ?? throw new InvalidOperationException("Connection string 'LoginDBContextConnection' not found.");
-
 // Funciona para crear la base de datos con sqlite
 //builder.Services.AddDbContext<LoginDBContext>(options => options.UseSqlite(connectionString));
 
+// Funciona para crear la base de datos con sqlserver
+var connectionString = builder.Configuration.GetConnectionString("ConnectionStringSQLServer") ?? throw new InvalidOperationException("Connection string 'MyDbConnection' not found.");
+builder.Services.AddDbContext<LoginDBContext>(options => options.UseSqlServer(connectionString));
+
 // Funciona para crear la base de datos con postgresql
-var connectionString = builder.Configuration.GetConnectionString("ConnectionStringPSQL") ?? throw new InvalidOperationException("Connection string 'LoginDBContextConnection' not found.");
-builder.Services.AddDbContext<LoginDBContext>(options => options.UseNpgsql(connectionString));
+//var connectionString = builder.Configuration.GetConnectionString("ConnectionStringPSQL") ?? throw new InvalidOperationException("Connection string 'LoginDBContextConnection' not found.");
+//builder.Services.AddDbContext<LoginDBContext>(options => options.UseNpgsql(connectionString));
 
 // Funciona para crear la BD Redis en Azure
 // builder.Services.AddStackExchangeRedisCache(options =>{
