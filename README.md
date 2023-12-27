@@ -56,7 +56,7 @@ Se corren los siguientes comandos
 
 ## Despliegue
 
-[![pagina1](https://img.shields.io/badge/Azure-Web-blue)](logincrud.azurewebsites.net)
+[![pagina1](https://img.shields.io/badge/Azure-Web-blue)](https://logincrud.azurewebsites.net/Identity/Account/Login?ReturnUrl=%2F)
 
 [![pagina2](https://img.shields.io/badge/Somee-Web-blue)](http://logincrud.somee.com/Identity/Account/Login?ReturnUrl=%2F)
 
